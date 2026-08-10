@@ -55,12 +55,6 @@ def paint_move(x, y):
     t.goto(x, y)
     t.update()
 
-
-def key(key_name, command):
-    t.onkey(command, key_name)
-    t.update()
-
-
 def move_by_x(x):
     t.setx(t.getx() + x)
     t.update()
