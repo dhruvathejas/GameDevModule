@@ -377,7 +377,7 @@ This creates a blue player sprite that moves across the screen and wraps around 
 | `clear()` | Clear the drawing |
 | `Sprite.create_sprite()` | Create/register a sprite |
 | `game_frame()` | Render all sprites |
-| Manual sprite variables wit h an operater.| Change sprite.x, sprite.y, sprite.size, sprite.colour, sprite.draw, or sprite.dot directly |
+| Manual sprite variables with an operater.| Change sprite.x, sprite.y, sprite.size, sprite.colour, sprite.draw, or sprite.dot directly |
 ---
 
 # Core Game Pattern
