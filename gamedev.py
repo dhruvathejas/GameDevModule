@@ -77,4 +77,4 @@ def paint_circle(x, y, size):
 
 def create_sprite(name,x,y,size,colour,draw):
     sprites.append(name)
-    name.x,name.y,name.size,name.colour,name.draw = x,y,size,colour,draw
+    name.x, name.y, name.size, name.colour, name.draw = x, y, size, colour, draw
