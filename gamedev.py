@@ -14,34 +14,39 @@ def paint(x1, y1, x2, y2):
     goto(x1, y1)
     pendown()
     goto(x2, y2)
+    update()
 
 
 def paint_start():
     pendown()
+    update()
 
 
 def paint_stop():
     penup()
+    update()
 
 
 def paint_color(color):
     pencolor(color)
+    update()
 
 
 def paint_size(size):
     pensize(size)
+    update()
 
 
 def paint_rectangle(x, y, width, height):
     penup()
     goto(x, y)
-    pendown()
 
     for i in range(2):
         forward(width)
         right(90)
         forward(height)
         right(90)
+        update()
 
 
 def get_x():
