@@ -1,11 +1,9 @@
 from turtle import *
 
-sprites = {}
+sprites = []
 
 listen()
-
 tracer(False)
-
 speed(0)
 
 
@@ -40,13 +38,16 @@ def paint_size(size):
 def paint_rectangle(x, y, width, height):
     penup()
     goto(x, y)
+    pendown()
 
     for i in range(2):
         forward(width)
         right(90)
         forward(height)
         right(90)
-        update()
+
+    penup()
+    update()
 
 
 def get_x():
@@ -59,18 +60,22 @@ def get_y():
 
 def paint_move(x, y):
     goto(x, y)
+    update()
 
 
 def key(key_name, command):
     onkey(command, key_name)
+    update()
 
 
 def move_by_x(x):
     setx(get_x() + x)
+    update()
 
 
 def move_by_y(y):
     sety(get_y() + y)
+    update()
 
 
 def paint_circle(x, y, size):
@@ -79,7 +84,11 @@ def paint_circle(x, y, size):
     pendown()
     circle(size / 2)
     penup()
+    update()
 
-def create_sprite(name,x,y,size,colour,draw):
+
+class Sprite:
+    def create_sprite(name, x, y, size, colour, draw):
     sprites.append(name)
     name.x, name.y, name.size, name.colour, name.draw = x, y, size, colour, draw
+    update()
