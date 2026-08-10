@@ -88,7 +88,22 @@ def paint_circle(x, y, size):
 
 
 class Sprite:
-    def create_sprite(name, x, y, size, colour, draw):
-    sprites.append(name)
-    name.x, name.y, name.size, name.colour, name.draw = x, y, size, colour, draw
+    def create_sprite(name, x, y, size, colour, draw, dot):
+        sprites.append(name)
+        name.x, name.y, name.size, name.colour, name.draw, name.dot = x, y, size, colour, draw, dot
+
+def game_frame():
+    for i in range(len(sprites)):
+        goto(sprites[i].x, sprites[i].y)
+
+        if sprites[i].draw == 1:
+            pendown()
+        else:
+            penup()
+
+        pencolor(sprites[i].colour)
+
+        if sprites[i].dot == 1 and sprites[i].draw == 1:
+            dot(sprites[i].size, sprites[i].colour)
+
     update()
