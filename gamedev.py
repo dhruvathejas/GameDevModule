@@ -1,109 +1,108 @@
-from turtle import *
 import turtle as t
 
-hideturtle()
+version = 1.00
 
 sprites = []
 
-listen()
-tracer(False)
-speed(0)
+t.listen()
+t.tracer(False)
+t.speed(0)
 
 
 def paint(x1, y1, x2, y2):
-    penup()
-    goto(x1, y1)
-    pendown()
-    goto(x2, y2)
-    update()
+    t.penup()
+    t.goto(x1, y1)
+    t.pendown()
+    t.goto(x2, y2)
+    t.update()
 
 
 def paint_start():
-    pendown()
-    update()
+    t.pendown()
+    t.update()
 
 
 def paint_stop():
-    penup()
-    update()
+    t.penup()
+    t.update()
 
 
 def paint_color(color):
-    pencolor(color)
-    update()
+    t.pencolor(color)
+    t.update()
 
 
 def paint_size(size):
-    pensize(size)
-    update()
+    t.pensize(size)
+    t.update()
 
 
 def paint_rectangle(x, y, width, height):
-    penup()
-    goto(x, y)
-    pendown()
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
 
     for i in range(2):
-        forward(width)
-        right(90)
-        forward(height)
-        right(90)
+        t.forward(width)
+        t.right(90)
+        t.forward(height)
+        t.right(90)
 
-    penup()
-    update()
+    t.penup()
+    t.update()
 
 def paint_move(x, y):
-    goto(x, y)
-    update()
+    t.goto(x, y)
+    t.update()
 
 
 def key(key_name, command):
-    onkey(command, key_name)
-    update()
+    t.onkey(command, key_name)
+    t.update()
 
 
 def move_by_x(x):
-    setx(get_x() + x)
-    update()
+    t.setx(t.getx() + x)
+    t.update()
 
 
 def move_by_y(y):
-    sety(get_y() + y)
-    update()
+    t.sety(t.gety() + y)
+    t.update()
 
 
 def paint_circle(x, y, size):
-    penup()
-    goto(x, y)
-    pendown()
-    circle(size / 2)
-    penup()
-    update()
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.circle(size / 2)
+    t.penup()
+    t.update()
 
 def clear():
     t.clear()
-    update()
+    t.update()
+
+names = []
+attributes = []
+
 
 class Sprite:
     def create_sprite(name, x, y, size, colour, draw, dot):
-        sprites.append(name)
-        name.x, name.y, name.size, name.colour, name.draw, name.dot = x, y, size, colour, draw, dot
+        names.append(name)
+        attributes.append([x, y, size, colour, draw, dot])
 
-def game_frame():
-    for i in range(len(sprites)):
-        penup()
-        goto(sprites[i].x, sprites[i].y)
 
-        if sprites[i].draw == 1:
-            pendown()
-        else:
-            penup()
+class GameLoop:
+    def game_loop():
+        for i in range(len(names)):
+            a = attributes[i]
 
-        pencolor(sprites[i].colour)
-
-        if sprites[i].dot == 1 and sprites[i].draw == 1:
-            penup()
-            dot(sprites[i].size, sprites[i].colour)
-
-    penup()
-    update()
+            t.penup()
+            t.color(a[3])
+            t.goto(a[0], a[1])
+            if a[4] == 1:
+                t.pendown
+            if a[5] and a[4] == 1:
+                t.dot(a[2], a[3])
+        t.done()
