@@ -1,6 +1,6 @@
 import turtle as t
 
-t.hideturtle()
+version = 1.00
 
 sprites = []
 
@@ -55,6 +55,12 @@ def paint_move(x, y):
     t.goto(x, y)
     t.update()
 
+
+def key(key_name, command):
+    t.onkey(command, key_name)
+    t.update()
+
+
 def move_by_x(x):
     t.setx(t.getx() + x)
     t.update()
@@ -77,26 +83,26 @@ def clear():
     t.clear()
     t.update()
 
+names = []
+attributes = []
+
+
 class Sprite:
     def create_sprite(name, x, y, size, colour, draw, dot):
-        sprites.append(name)
-        name.x, name.y, name.size, name.colour, name.draw, name.dot = x, y, size, colour, draw, dot
+        names.append(name)
+        attributes.append([x, y, size, colour, draw, dot])
 
-def game_frame():
-    for i in range(len(sprites)):
-        t.penup()
-        t.goto(sprites[i].x, sprites[i].y)
 
-        if sprites[i].draw == 1:
-            t.pendown()
-        else:
+class GameLoop:
+    def game_loop():
+        for i in range(len(names)):
+            a = attributes[i]
+
             t.penup()
-
-        t.pencolor(sprites[i].colour)
-
-        if sprites[i].dot == 1 and sprites[i].draw == 1:
-            t.penup()
-            t.dot(sprites[i].size, sprites[i].colour)
-
-    t.penup()
-    t.update()
+            t.color(a[3])
+            t.goto(a[0], a[1])
+            if a[4] == 1:
+                t.pendown
+            if a[5] and a[4] == 1:
+                t.dot(a[2], a[3])
+        t.done()
